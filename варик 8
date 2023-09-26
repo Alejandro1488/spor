@@ -1,0 +1,20 @@
+import _ from 'lodash';
+
+export default (content) => {
+  const data = content.split('\n').slice(1, -1).map((row) => row.split(','));
+  console.log(`Count: ${data.length}`);
+
+  // step 2
+  const letterCode = data.map((row) => (row[0]));
+  const sortedLetter = _.uniq(letterCode).sort().join(', ');
+  console.log(`Barbershops: ${sortedLetter}`);
+
+  // step 3
+  const Ratings = data.map((row) => Number(row[4]));
+  const maxRatings = Math.max(...Ratings);
+  const minRatings = Math.min(...Ratings);
+  console.log(`Ratings: Min: ${minRatings} Max: ${maxRatings}`);
+  // step 4
+  const maxOldest = _.maxBy(data, (row) => Number(row[3]));
+  console.log(`Oldest barbershop: ${maxOldest[0]}`);
+};
