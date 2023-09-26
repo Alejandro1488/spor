@@ -246,3 +246,12 @@ $ ssh root@[IP-адрес сервера]
 
 
 git status   git add .    git commit -m  git push ``
+
+node bin/barbershops.js __fixtures__/barbershops1.csv
+npm ci 
+make lint-fix 
+git config --global user.email mr.d.20020@bk.ru
+git config --global user.name Alejandro1488
+git commit -m step4
+node bin/barbershops1.js __fixtures__/barbershops1/csv
+npm ci lodash 
