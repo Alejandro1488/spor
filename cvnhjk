@@ -1,0 +1,21 @@
+import _ from 'lodash';
+
+export default (content) => {
+    const norm_infa = content.split('\n').slice(1).map((el) => el.split('|')).map((el) => el.slice(1, - 1))
+    function make_obj(arr){
+        const obj = {rigion: arr[0], nasilenie: arr[1], ploshad: arr[2].trim(), type: arr[3], okr: arr[4]}
+        return obj
+    }
+    const info_obj = norm_infa.map((q) => make_obj(q))
+    console.log(info_obj)
+//step 1
+console.log(`Count: ${info_obj.length}`)
+
+
+//step 2
+const spisok = info_obj.map((el) => el.rigion).sort().join()
+console.log(`Список округов: ${spisok}`)
+
+
+
+}
