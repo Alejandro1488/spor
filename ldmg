@@ -25,7 +25,7 @@ console.log(Count currency between 10 and 30: ${countInRange});
 }
 
 
-вариант3 автомобили
+вариант4 автомобили
 
 import _ from 'lodash';
 export default (content) => {
@@ -44,6 +44,23 @@ const maxOldest = _.minBy(data, (row) => Number(row[2]))
 console.log(Самый старый автомобиль: ${maxOldest[0]} ${maxOldest[1]})
 }
 
+варик3 существа
+import _ from 'lodash'
+export default (content) => {
+//Step 1
+const data = content.split('\n').splice(1).sort().map((row) => row.split(' '));
+console.log(`Count: ${data.length}`);
+//Step 2 
+const letterCode = data.map((row) => (row[1][0].toUpperCase() + row[1].slice(1).toLowerCase()));
+console.log(`Castels: ${_.uniq(letterCode).join(', ')}`);
+//Step 3 
+const maxHP = _.maxBy(data, (row) => Number(row[4]))[2];
+console.log(`Largest hp: ${maxHP}`);
+//Step 4
+    const getAverage = data.map((row) => Number(row[3]));
+    const minMaxAtack = getAverage.reduce((acc , number) => acc + number, 0);
+console.log(minMaxAtack);
+};
 
 вариант 6 планеты
 
